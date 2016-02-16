@@ -9,7 +9,12 @@ describe ('Feature test:', function(){
 
   it("Lands a plane at the airport", function() {
     plane.land(airport);
-    expect(airport.hanger).toContain(plane);
+    expect(airport.planes()).toContain(plane);
   });
 
+  it("Instructs a plane to take off", function() {
+    plane.land(airport);
+    plane.takeOff();
+    expect(airport.planes()).not.toContain(plane);
+  });
 });
